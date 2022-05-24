@@ -34,20 +34,23 @@ public class UsuarioController {
         }
         //return ResponseEntity.ok(service.getUsuariosById(id));
     }
-    @Secured("ROLE_ADMIN")
+
     @PostMapping
+    @Secured("ROLE_ADMIN")
     public String post(@RequestBody Usuario usuario){
         Usuario u = service.insert(usuario);
         return "Usuario salvo com sucesso: "+u.getId();
     }
-    @Secured("ROLE_ADMIN")
+
     @PutMapping("{id}")
+    @Secured("ROLE_ADMIN")
     public String put(@RequestBody Usuario usuario, @PathVariable long id){
         Usuario user = service.update(usuario, id);
         return "Usuário atualizado com sucesso: "+user.getId();
     }
-    @Secured("ROLE_ADMIN")
+
     @DeleteMapping("/{id}")
+    @Secured("ROLE_ADMIN")
     public String delete(@PathVariable("id") long id){
         return service.delete(id);
     }

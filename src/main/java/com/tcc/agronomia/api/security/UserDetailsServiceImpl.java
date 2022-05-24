@@ -3,7 +3,6 @@ package com.tcc.agronomia.api.security;
 import com.tcc.agronomia.domain.Usuario.Usuario;
 import com.tcc.agronomia.domain.Usuario.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -34,7 +33,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if(user == null){
             throw new UsernameNotFoundException("usuario não encontrado");
         }else{
-            return User.withUsername(email).password(user.getSenha()).roles("USER").build();
+            return user;
         }
     }
 }
