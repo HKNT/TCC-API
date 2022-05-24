@@ -50,3 +50,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        System.out.println(encoder.encode("teste123"));
 //    }
 }//class
+
