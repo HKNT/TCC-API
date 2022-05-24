@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface UsuarioRepository extends CrudRepository<Usuario,Long> {
     List<Usuario> findByPerfilId(String perfilId);
+
 }
